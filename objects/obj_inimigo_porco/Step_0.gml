@@ -27,10 +27,10 @@ if(_chao)
 			velh = 0;
 		}
 	
-		show_debug_message("DIREÇÃO: " + string(velh));
+		//show_debug_message("DIREÇÃO: " + string(velh));
 		
 		//Resetando o tempo
-		tempo_decidir_andar = room_speed * 2;		
+		tempo_decidir_andar = room_speed * 3;		
 	}
 	
 	
@@ -48,11 +48,31 @@ if(_chao)
 	}
 	
 	
+	// Se eu bater na parede, eu mudo de direção
+	if(place_meeting(x + velh, y, obj_chao))
+	{
+		velh *= -1;
+	}
+	
+	// Se eu não posso cair, então quando for cair, eu mudo de direção
+	if(pode_cair == false)
+	{
+	
+		if(place_meeting(x + (velh * 10), y + 1, obj_chao)==false)
+		{
+			//Se eu não posso cair e não estou tocando no chão na minha frente
+			//então eu mudo de direção
+			
+			velh *=-1;
+		}
+	}
+	
+	
 }
 else //Se eu não estou no chão, eu aplico a gravidade
 {
 	velv += grav;
-	velh = 0;
+	//velh = 0;
 	
 	if(velh != 0)
 	{

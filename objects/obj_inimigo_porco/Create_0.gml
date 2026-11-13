@@ -6,6 +6,21 @@ event_inherited();
 
 vel = choose(1,-1);
 
-andando = true;
+andando = choose(true, false);
 
-tempo_decidir_andar = room_speed;
+
+if(andando)
+{
+	if(andando)
+	{
+	//Se eu estou no chão, eu ando para um lado
+	velh = choose(vel, -vel);
+			
+	}
+	else
+	{
+		velh = 0;
+	}
+}
+
+tempo_decidir_andar = room_speed * 3;
