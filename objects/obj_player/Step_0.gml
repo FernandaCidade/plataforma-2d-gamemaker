@@ -37,8 +37,16 @@ if(_chao)
 }
 else // Aplicando gravidade se não estou no chão
 {
-	//Mudando a sprite
-	sprite_index = spr_player_jump;
+	if(velv < 0) //Se eu estou pulando
+	{
+		//Mudando a sprite
+		sprite_index = spr_player_jump;
+	
+	}
+	else //Se não, estou caindo
+	{
+		sprite_index = spr_player_fall;
+	}
 	
 	//Aplicando a gravidade
 	velv += grav;
