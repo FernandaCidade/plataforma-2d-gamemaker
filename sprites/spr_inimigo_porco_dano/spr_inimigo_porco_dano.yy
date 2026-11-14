@@ -60,7 +60,7 @@
     },
     "name":"spr_inimigo_porco_dano",
     "playback":1,
-    "playbackSpeed":6.0,
+    "playbackSpeed":3.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",

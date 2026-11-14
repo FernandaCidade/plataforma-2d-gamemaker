@@ -1,3 +1,20 @@
+// O que fazer quando eu morri? Morrer, ué.
+if(morto)
+{
+	//Indo para a sprite de morte
+	sprite_index = spr_inimigo_porco_morto; 
+	
+	//Sumindo se acabou a minha animação
+	if(image_speed <= 0 )
+	{
+		image_alpha -= 0.01;
+	}
+	exit;
+}
+
+
+
+
 //Checando se o porco esta no chão
 var _chao = place_meeting(x,y + 1,obj_chao);
 
@@ -37,7 +54,7 @@ if(_chao)
 	
 	
 	//Controlando a animação do inimigo
-	if(velh != 0)
+	if(velh != 0 && dano == false)
 	{
 		sprite_index = spr_inimigo_porco_run;
 		image_xscale = sign(velh);
@@ -78,5 +95,13 @@ else //Se eu não estou no chão, eu aplico a gravidade
 	{
 		image_xscale = sign(velh);
 	}
+}
+
+//Checando se eu estou tomando dano
+
+if(dano && morto == false)
+{
+	sprite_index = spr_inimigo_porco_dano;
+	velh = 0; //Ao tomar dano, não vai mais se mover
 }
 

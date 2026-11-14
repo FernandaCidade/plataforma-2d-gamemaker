@@ -39,6 +39,7 @@
     {"id":{"name":"spr_chao","path":"sprites/spr_chao/spr_chao.yy",},},
     {"id":{"name":"spr_inimigo_porco_dano","path":"sprites/spr_inimigo_porco_dano/spr_inimigo_porco_dano.yy",},},
     {"id":{"name":"spr_inimigo_porco_idle","path":"sprites/spr_inimigo_porco_idle/spr_inimigo_porco_idle.yy",},},
+    {"id":{"name":"spr_inimigo_porco_morto","path":"sprites/spr_inimigo_porco_morto/spr_inimigo_porco_morto.yy",},},
     {"id":{"name":"spr_inimigo_porco_run","path":"sprites/spr_inimigo_porco_run/spr_inimigo_porco_run.yy",},},
     {"id":{"name":"spr_level","path":"sprites/spr_level/spr_level.yy",},},
     {"id":{"name":"spr_player_fall","path":"sprites/spr_player_fall/spr_player_fall.yy",},},

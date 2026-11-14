@@ -46,6 +46,21 @@ else // Aplicando gravidade se não estou no chão
 	else //Se não, estou caindo
 	{
 		sprite_index = spr_player_fall;
+		
+		//Se eu estou indo pra baixo, ai eu posso pular na cabeça do inimigo
+		var _inimigo = instance_place(x, y + 1, obj_inimigo_pai);
+		
+		//Se eu cair no inimigo
+		if(_inimigo)
+		{
+			//Subo no ar novamente
+			velv = -vel_jump;
+			
+			//Avisando para o inimigo que eu acertei que ele tomou dano
+			_inimigo.dano = true;
+		}
+		
+		
 	}
 	
 	//Aplicando a gravidade
