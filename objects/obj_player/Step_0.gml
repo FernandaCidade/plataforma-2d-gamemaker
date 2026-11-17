@@ -9,8 +9,15 @@ _right = keyboard_check(inputs.right);
 
 _jump = keyboard_check_pressed(inputs.jump);
 
+//Só posso me controlar se o timer do dano está zerado
+if(timer_dano <= 0)
+{
+	//dano = false;
+	velh = (_right - _left) * vel; //Se apertar para direita, vai fazer 1 menos o valor do pixel. Mesma coisa para esquerda, o que dá valor negativo multiplicado pela velocidade
+	
+}
 
-velh = (_right - _left) * vel; //Se apertar para direita, vai fazer 1 menos o valor do pixel. Mesma coisa para esquerda, o que dá valor negativo multiplicado pela velocidade
+
 
 
 
@@ -53,11 +60,22 @@ else // Aplicando gravidade se não estou no chão
 		//Se eu cair no inimigo
 		if(_inimigo)
 		{
-			//Subo no ar novamente
-			velv = -vel_jump;
+			//Se eu pulei na cabeça do inimigo, não tem perigo de tomar dano 
+			dano = false;
 			
-			//Avisando para o inimigo que eu acertei que ele tomou dano
-			_inimigo.dano = true;
+			//Se o inimigo não está mortoa
+			if(_inimigo.morto == false)
+			{
+				
+				
+				//Subo no ar novamente
+				velv = -vel_jump;
+			
+				//Avisando para o inimigo que eu acertei que ele tomou dano
+				_inimigo.dano = true;
+			}
+			
+		
 		}
 		
 		
@@ -70,4 +88,59 @@ else // Aplicando gravidade se não estou no chão
 	{
 		image_xscale = sign(velh);
 	}
+}
+if(dano)
+{
+	
+	sprite_index = spr_player_hit;
+	
+}
+
+
+
+
+//Se o timer do dano é maior que zero, diminuo ele 
+if(timer_dano > 0)
+{
+	timer_dano --;
+	
+	//Se timer dano chegar a zero, dano fica true (estava piscando que nem árvore de natal)
+	if(timer_dano == 0)
+	{
+		dano = false;
+	}
+}
+
+
+//Indicando que terei um tempo invensivel  
+if(inv_timer > 0)
+{
+	inv_timer--;
+	image_alpha = .5;              
+}
+else
+{
+	image_alpha = 1;
+}
+
+
+//Tomando dano
+var _inimigo = instance_place(x,y + 3,obj_inimigo_pai);
+
+
+//Se tem um inimigo e o tempo invensivel é menor que zero
+if(_inimigo && inv_timer <= 0)
+{
+	//Dando o valor do timer dano 
+	timer_dano = tempo_dano;
+	
+	inv_timer = inv_tempo;
+	
+	//Caso o inimigo não esteja morto e sem danos
+	if(_inimigo.morto == false && _inimigo.dano == false)
+	{
+		dano = true; //recebo dano 
+	}
+	
+	
 }
