@@ -55,7 +55,7 @@ else // Aplicando gravidade se não estou no chão
 		sprite_index = spr_player_fall;
 		
 		//Se eu estou indo pra baixo, ai eu posso pular na cabeça do inimigo
-		var _inimigo = instance_place(x, y + 1, obj_inimigo_pai);
+		var _inimigo = instance_place(x, y + 5, obj_inimigo_pai);
 		
 		//Se eu cair no inimigo
 		if(_inimigo)
@@ -125,21 +125,22 @@ else
 
 
 //Tomando dano
-var _inimigo = instance_place(x,y + 3,obj_inimigo_pai);
+var _inimigo = instance_place(x,y,obj_inimigo_pai);
 
 
 //Se tem um inimigo e o tempo invensivel é menor que zero
 if(_inimigo && inv_timer <= 0)
 {
-	//Dando o valor do timer dano 
-	timer_dano = tempo_dano;
-	
-	inv_timer = inv_tempo;
+
 	
 	//Caso o inimigo não esteja morto e sem danos
 	if(_inimigo.morto == false && _inimigo.dano == false)
 	{
 		dano = true; //recebo dano 
+		//Dando o valor do timer dano 
+		timer_dano = tempo_dano;
+	
+		inv_timer = inv_tempo;
 	}
 	
 	
