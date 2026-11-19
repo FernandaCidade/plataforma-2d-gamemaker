@@ -18,7 +18,7 @@ else if(momento ==  "on")
 		
 	}
 	else 
-	{
+	{ 
 		//Se o boom_timer for 0 ou menos
 		momento = "boom";
 	}

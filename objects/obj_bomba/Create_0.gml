@@ -2,7 +2,7 @@
 event_inherited();
 
 //Definindo a frase da bomba
-momento = "on"; //off, on, boom 
+momento = "off"; //off, on, boom 
 
 //Timer para explodir 
 
